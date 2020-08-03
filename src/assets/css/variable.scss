@@ -1,0 +1,129 @@
+$font_24: 1.5rem; //24px
+$font_16: 1rem; //16px
+$font_14: 0.875rem; //14px
+$font_12: 0.75rem; //12px
+
+// 颜色
+$main_text_color: #303133;
+$normal_text_color: #606266;
+$secondary_text_color: #909399;
+$first_border_color: #dcdfe6;
+$second_border_color: #e4e7ed;
+$third_border_color: #ebeef5;
+
+// 通用样式块
+@mixin full-size {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin fullscreen {
+    width: 100vw;
+    height: 100vh;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-col-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-row-center {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin modal-style {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+@mixin position-center($width, $height) {
+    top: 50%;
+    left: 50%;
+    margin-top: -$height / 2;
+    margin-left: -$width / 2;
+    width: $width;
+    height: $height;
+}
+
+//element-ui el-row el-col 标签基础样式
+@mixin row-col-base($bg_color, $height) {
+    .el-row {
+        background: $bg_color;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .el-col {
+    }
+    .grid-content {
+        height: $height;
+    }
+    .row-bg {
+        padding: 10px 0;
+    }
+}
+
+@mixin text-overflow-dot($text_width) {
+    width: $text_width;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// 滚动条
+$scroll_width: 20px;
+@mixin custom-scrollbar {
+    &::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: $scroll_width; /*高宽分别对应横竖滚动条的尺寸*/
+        height: 1px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        border-radius: $scroll_width / 2;
+        background-color: #aaa;
+        background-image: -webkit-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.2) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.2) 75%,
+            transparent 75%,
+            transparent
+        );
+    }
+
+    &::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        border-radius: $scroll_width / 2;
+        background: #ededed;
+    }
+}
+
+//动画
+//无限转圈
+@mixin infiniteRotate {
+    @keyframes infiniteRotate {
+        form {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(-360deg);
+        }
+    }
+}
