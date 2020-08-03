@@ -1,2 +1,6 @@
-# vue_base
-Vue CLI 基础模板
+# 包含：
+axios
+element
+vuex
+vue-router
+sass
